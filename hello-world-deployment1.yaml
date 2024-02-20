@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world-app
-        image: nishant2081/kamal:latest
+        image: nishant2081/hello:latest
         ports:
         - containerPort: 9000
       imagePullSecrets:
