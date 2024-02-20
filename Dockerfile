@@ -1,5 +1,5 @@
 # Use the official Node.js image as a base image
-FROM node:22
+FROM node:14
 
 # Create a directory to hold the application code
 WORKDIR /usr/src/app
