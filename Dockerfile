@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 9000
 
 # Command to run the application
-CMD ["node", "myapp1.js"]
+CMD ["node", "myapp.js"]
