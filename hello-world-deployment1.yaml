@@ -16,6 +16,6 @@ spec:
       - name: hello-world-app
         image: nishant2081/k8s:latest
         ports:
-        - containerPort: 9000
+        - containerPort: 3000
       imagePullSecrets:
       - name: secret-registry-secret
