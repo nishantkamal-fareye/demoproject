@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: myapp
+  template: # Pod template
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: hello-world-app
+        image: nishant2081/k8s:latest
+        ports:
+        - containerPort: 9000
+      imagePullSecrets:
+      - name: secret-registry-secret
