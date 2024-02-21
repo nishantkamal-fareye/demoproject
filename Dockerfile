@@ -1,19 +1,19 @@
-# Use the official Node.js image as a base image
-FROM node:14
+# Use the official Node.js image as the base image
+FROM node:latest
 
-# Create a directory to hold the application code
-WORKDIR /usr/src/app
+# Set the working directory inside the container
+WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json (if available) to the working directory
 COPY package*.json ./
 
-# Install the application dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose the port on which your application will run
+# Expose port 9000
 EXPOSE 9000
 
 # Command to run the application
