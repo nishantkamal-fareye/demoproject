@@ -43,6 +43,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: wordpress-service
+  namespace: kamal
 spec:
   type: NodePort
   selector:
