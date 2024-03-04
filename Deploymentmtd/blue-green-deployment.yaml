@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp-container
-        image: your-registry/myapp:blue
+        image: nishant2081/k19:latest
         ports:
         - containerPort: 8080
 ---
