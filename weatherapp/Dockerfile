@@ -15,5 +15,7 @@ COPY . .
 # Expose port 6000
 EXPOSE 6000
 
+ENV API_KEY="1a7ee52df2f34d61b31171106241003"
+
 # Command to run the application
 CMD ["node", "forecast.js"]
