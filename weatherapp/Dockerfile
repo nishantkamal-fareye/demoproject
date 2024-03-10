@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Expose port 6000
-EXPOSE 6000
+EXPOSE 6005
 
 ENV API_KEY="1a7ee52df2f34d61b31171106241003"
 
