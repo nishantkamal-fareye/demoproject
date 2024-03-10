@@ -21,5 +21,10 @@ spec:
             secretKeyRef:
               name: weather-api-secret
               key: api-key
+        - name: API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: api-config
+                  key: api-url
         ports:
         - containerPort: 6005
