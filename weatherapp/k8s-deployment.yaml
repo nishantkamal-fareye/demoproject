@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weather-pod
+  template:
+    metadata:
+      labels:
+        app: weather-pod
+    spec:
+      containers:
+      - name: weather-pod
+        image: your-registry/weather-node:latest
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: weather-api-secret
+              key: api-key
+        ports:
+        - containerPort: 6000
