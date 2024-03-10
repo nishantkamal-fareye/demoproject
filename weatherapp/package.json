@@ -1,10 +1,6 @@
 {
-  "name": "forecast",
-  "version": "1.0.0",
-  "main": "forecast.js",
   "dependencies": {
     "express": "^4.17.1",
-    "axios": "^0.24.0",
-  },
-  // Other configurations...
+    "axios": "^0.24.0"
+  }
 }
