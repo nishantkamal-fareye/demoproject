@@ -22,4 +22,4 @@ spec:
               name: weather-api-secret
               key: api-key
         ports:
-        - containerPort: 6000
+        - containerPort: 6005
