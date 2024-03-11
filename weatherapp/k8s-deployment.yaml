@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: weather-pod
-        image: nishant2081/k81s:latest
+        image: nishant2081/k123s:latest
         env:
         - name: API_KEY
           valueFrom:
@@ -27,4 +27,4 @@ spec:
               name: api-config
               key: api-url
         ports:
-        - containerPort: 6005
+        - containerPort: 6007
