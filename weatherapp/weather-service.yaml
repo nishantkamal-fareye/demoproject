@@ -7,6 +7,6 @@ spec:
     app: weather-pod
   ports:
     - protocol: TCP
-      port: 6005
-      targetPort: 6007
+      port: 7003
+      targetPort: 7003
   type: NodePort
