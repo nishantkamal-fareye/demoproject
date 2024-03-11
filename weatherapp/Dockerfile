@@ -12,8 +12,8 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose port 7003
-EXPOSE 7003
+# Expose port 7004
+EXPOSE 7004
 
 ENV API_KEY="1a7ee52df2f34d61b31171106241003"
 
