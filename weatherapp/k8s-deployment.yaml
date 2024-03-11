@@ -27,4 +27,4 @@ spec:
               name: api-config
               key: api-url
         ports:
-        - containerPort: 6007
+        - containerPort: 7004
