@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: api-config
 data:
-  api-url: https://api.weatherapi.com/v1/forecast.json?key=your_api_key_here&q=28.52,77.19&days=7
+  api-url: "http://api.openweathermap.org/data/2.5/forecast?q=${address}&units=metric&appid=${API_KEY}"
