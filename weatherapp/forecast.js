@@ -3,7 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-const port = 7003;
+const port = 7004;
 
 const API_KEY = process.env.API_KEY;
 
@@ -21,14 +21,15 @@ app.get('/', (req, res) => {
 
       // Extract relevant information from the forecast list
       const forecastData = forecastList.map(item => {
-        const date = new Date(item.dt * 1000).toLocaleDateString();
+        const dateTime = new Date(item.dt * 1000).toLocaleString(); // Convert UNIX timestamp to a readable date and time
         const temperature = item.main.temp;
-        return { date, temperature };
+        const weatherDescription = item.weather[0].description;
+        return { dateTime, temperature, weatherDescription };
       });
 
       // Construct the response message
       const message = `<h1>Weather Forecast for ${cityName}</h1>`;
-      const forecastItems = forecastData.map(item => `<p>Date: ${item.date}, Temperature: ${item.temperature}&deg;C</p>`).join('');
+      const forecastItems = forecastData.map(item => `<p>Date/Time: ${item.dateTime}, Temperature: ${item.temperature}&deg;C, Weather: ${item.weatherDescription}</p>`).join('');
       const htmlResponse = `<html><body><div id='container'>${message}${forecastItems}</div></body></html>`;
 
       res.send(htmlResponse);
