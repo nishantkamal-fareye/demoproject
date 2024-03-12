@@ -1,10 +1,11 @@
 const express = require('express');
+const app = express();
 const axios = require('axios');
 require('dotenv').config();
-const app = express();
 
 const API_KEY = process.env.apikey;
 const port = process.env.PORT; // Corrected to use PORT
+
 // Define a route for the root path of the application
 app.get('/', (req, res) => {
   const address = req.query.address; // Read the address query parameter from the request
