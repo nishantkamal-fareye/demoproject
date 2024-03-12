@@ -6,7 +6,7 @@ require('dotenv').config();
 // Get the address from the command line arguments
 var address = process.argv[2]
 
-const API_KEY = process.env.API_KEY;
+const API_KEY = "0463d36f8a64d3405f77ae069770d0a4";
 
 // Build the URL for the OpenWeatherMap API call
 var url = `http://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=${API_KEY}`
