@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: api-config
+  name: weather-api-config
 data:
   api-url: "http://api.openweathermap.org/data/2.5/forecast?q=${address}&units=metric&appid=${API_KEY}"
+  HOST: "http://hello-world-service:9000/hello"
