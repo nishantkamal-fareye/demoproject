@@ -1,41 +1,36 @@
-const express = require("express");
-const axios = require("axios");
+const express = require('express');
+const axios = require('axios');
+require('dotenv').config();
+
 const app = express();
+const port = 3000;
 
-// Set the view engine to EJS
-app.set("view engine", "ejs");
+const API_KEY = process.env.API_KEY;
 
-// Serve the public folder as static files
-app.use(express.static("public"));
+// Define a route for the root path of the application
+app.get('/', (req, res) => {
+  const address = req.query.address; // Read the address query parameter from the request
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${address}&units=metric&appid=${API_KEY}`;
+  console.log(url)
 
-// Render the index template with default values for weather and error
-app.get("/", (req, res) => {
-  res.render("index", { weather: null, error: null });
+  // Make an HTTP GET request to the API using axios
+  axios.get(url)
+    .then(response => {
+      const data = response.data;
+      const cityName = data.name;
+      const temperature = data.main.temp;
+      const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+      const message = `City Name: ${cityName}<br>Temperature: ${temperature}&deg;C<br>Sunset Time: ${sunsetTime}`;
+
+      res.send(`<html><body><div id='container'><h1>${message}</h1></div></body></html>`);
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).send('Error occurred while fetching weather data');
+    });
 });
 
-// Handle the /forecast route
-app.get("/forecast", async (req, res) => {
-  // Get the city from the query parameters
-  const city = req.query.city;
-  const apiKey = "0463d36f8a64d3405f77ae069770d0a4";
-
-  // Add your logic here to fetch weather data from the API
-  const APIUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
-  let weather;
-  let error = null;
-  try {
-    const response = await axios.get(APIUrl);
-    weather = response.data;
-  } catch (error) {
-    weather = null;
-    error = "Error, Please try again";
-  }
-  // Render the index template with the weather data and error message
-  res.render("index", { weather, error });
-});
-
-// Start the server and listen on port 7676 or the value of the PORT environment variable
-const port = process.env.PORT || 7676;
+// Start the server and listen on the specified port
 app.listen(port, () => {
-  console.log(`App is running on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
