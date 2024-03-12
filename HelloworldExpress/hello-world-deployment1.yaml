@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-deployment
-  namespace: kamal
 spec:
-  replicas: 2 
+  replicas: 1 
   selector:
     matchLabels:
       app: myapp
