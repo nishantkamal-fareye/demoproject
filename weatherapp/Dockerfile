@@ -12,10 +12,8 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose port 8888
-EXPOSE 8888
-
-ENV API_KEY="0463d36f8a64d3405f77ae069770d0a4"
+# Expose port 7676
+EXPOSE 7676
 
 # Command to run the application
 CMD ["node", "forecast.js"]
