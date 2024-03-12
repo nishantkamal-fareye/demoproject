@@ -34,8 +34,8 @@ app.get("/forecast", async (req, res) => {
   res.render("index", { weather, error });
 });
 
-// Start the server and listen on port 8888 or the value of the PORT environment variable
-const port = process.env.PORT || 8888;
+// Start the server and listen on port 7676 or the value of the PORT environment variable
+const port = process.env.PORT || 7676;
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
 });
