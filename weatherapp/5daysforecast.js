@@ -3,7 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
-const port = 3006;
+const port = 3020;
 
 const API_KEY = "0463d36f8a64d3405f77ae069770d0a4";
 
