@@ -26,5 +26,16 @@ spec:
             configMapKeyRef:
               name: weather-api-config
               key: weatherUrl
+        - name: Forecast_URL
+          valueFrom:
+            configMapKeyRef:
+              name: weather-api-config
+              key: forecastUrl
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: weather-api-config
+              key: HOST
+        
         ports:
         - containerPort: 7878
