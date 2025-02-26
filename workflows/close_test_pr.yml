@@ -1,0 +1,19 @@
+name: Close Test PR
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  close-test-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Close Specific Test PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TEST_PR_NUMBER=YOUR_TEST_PR_NUMBER  # Replace with your actual PR number
+          echo "Closing PR #$TEST_PR_NUMBER"
+          gh pr close $TEST_PR_NUMBER --delete-branch
