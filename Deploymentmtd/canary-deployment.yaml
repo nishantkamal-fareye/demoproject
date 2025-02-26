@@ -40,3 +40,4 @@ spec:
         backend:
           serviceName: myapp-canary
           servicePort: 8080
+          ......
